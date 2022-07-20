@@ -1,0 +1,39 @@
+npx playwright test -> Roda todo conteudo da pasta tests
+npx playwright test tests/example.spec.js -> Caso queira rodar apenas um arquivo
+test.only -> Executa apenas o teste com essa anotação
+test.skip -> Pula o teste com essa anotação
+npx playwright test --grep @fumaca -> Roda teste por tagName @fumaca
+npx playwright test --grep-invert @fumaca -> Roda testes que não tem tagName @fumaca
+npx playwright test --config=playwright.config.js --project=Chrome -> Especificando arquivo de configuração e nome do projeto (caracteristicas)
+test.describe.parallel -> Para usar mais de um worker de execução
+npx playwright test --reporter=html -> relatorio em html
+npx playwright codegen demoqa.com -> Permite gravar o teste no console, gerando codigo de teste
+
+// Salvar autenticação (ex: salva chave de login[não precisa logar toda vez]), class 195
+npx playwright codegen --save-storage=auth.json <urlWebsite>
+npx playwright codegen --load-storage=auth.json <urlWebsite>
+    await.page.context().storageState(path: 'automationUser.json')
+    test.use({storageState: "automationUser.json"})
+
+// Emular um dispositivo mobile
+npx playwright codegen --device="iPhone 11" <urlWebsite>
+//Caso queira listar os devices disponiveis digitar o nome do device errado
+npx playwright codegen --device="iPhone 1011"
+
+
+// Rastreamento de test (ligar nas confs do play [trace: "on"])
+npx playwright show-trace test-results\tests-2-assertion-Examples-Assertions-Chrome\trace.zip
+
+// Configuração Local
+test.use({ viewport: { width: 600, height: 900 } });
+
+// Algumas opções de linha de comando
+--debug -> Substitui o PWDEBUG=1
+--timeout=5 -> Especificar tempo maximo para rodar o teste
+--list -> Lista numeros de teste que possui
+--max-failures=20 -> Limita o numero de falhas permitidos, caso atingido para os testes
+--retries=3 -> Número de tentativas que fará caso teste falhe
+--workers=1 -> determina numero de worker, bom para nao testar em paralelo
+
+// Gerando PDF via playwright
+npx playwright pdf https://the-internet.herokuapp.com simples.pdf
