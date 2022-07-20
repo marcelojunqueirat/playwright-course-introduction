@@ -10,7 +10,7 @@ const config = {
         viewport:{width: 1280, height: 720},
         video:"on-first-retry",
         screenshot: "only-on-failure",
-        trace: "on"
+        trace: "only-on-failure"
     },
 
     projects: [
